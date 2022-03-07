@@ -9,7 +9,6 @@ geopmdpy(7) -- global extensible open power manager python daemon package
 
 
 
-
 DESCRIPTION
 -----------
 
