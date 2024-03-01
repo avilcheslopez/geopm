@@ -187,6 +187,7 @@ CC=gcc CXX=g++ \
             --mandir=%{_mandir} --docdir=%{docdir} \
             --with-python=%{python_bin} \
             --with-bash-completion-dir=%{compdir} \
+            --enable-debug \
             %{?level_zero_option} \
             %{?io_uring_option} \
             %{?cpuid_option} \
