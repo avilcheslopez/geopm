@@ -44,6 +44,14 @@ namespace geopm
         return platform_io_helper(false);
     }
 
+    PlatformIO &platform_io(std::list<std::shared_ptr<IOGroup> > iogroup_list,
+                            const PlatformTopo &topo)
+    {
+        static std::unique_ptr<PlatformIOImp> instance =
+            geopm::make_unique<PlatformIOImp>(iogroup_list, topo);
+        return *instance;
+    }
+
     static void platform_io_reset(void)
     {
         platform_io_helper(true);

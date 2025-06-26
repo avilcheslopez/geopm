@@ -11,6 +11,7 @@
 #include <set>
 #include <string>
 #include <vector>
+#include <list>
 
 #include "geopm_pio.h"
 #include "geopm_public.h"
@@ -18,6 +19,7 @@
 namespace geopm
 {
     class IOGroup;
+    class PlatformTopo;
     class ProfileIOGroup;
 
     /// @brief Class which is a collection of all valid control and
@@ -251,6 +253,9 @@ namespace geopm
 
     PlatformIO GEOPM_PUBLIC &
         platform_io(void);
+    PlatformIO GEOPM_PUBLIC &
+        platform_io(std::list<std::shared_ptr<IOGroup> > iogroup_list,
+                    const PlatformTopo &topo);
 }
 
 #endif

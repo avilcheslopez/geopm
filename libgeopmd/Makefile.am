@@ -11,7 +11,8 @@ AM_CPPFLAGS += -I$(top_srcdir)/src -I$(top_srcdir)/include \
 # THINGS THAT ARE INSTALLED
 lib_LTLIBRARIES = libgeopmd.la
 
-bin_PROGRAMS = geopmbatch
+bin_PROGRAMS = geopmbatch \
+               batch_test
 
 include_HEADERS = include/geopm_access.h \
                   include/geopm_debug.hpp \
@@ -94,6 +95,10 @@ EXTRA_DIST = .gitignore \
 geopmbatch_SOURCES = src/geopmbatch_main.cpp
 geopmbatch_CXXFLAGS = $(AM_CXXFLAGS) -std=c++17
 geopmbatch_LDADD = libgeopmd.la
+
+batch_test_SOURCES = src/batch_test.cpp
+batch_test_CXXFLAGS = $(AM_CXXFLAGS) -std=c++17
+batch_test_LDADD = libgeopmd.la
 
 # Add ABI version
 libgeopmd_la_LDFLAGS = $(AM_LDFLAGS) -version-info $(geopm_abi_version)
