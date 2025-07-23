@@ -29,11 +29,12 @@ void run_loop(int num_loops, int period, geopm::PlatformIO &pio, const std::vect
 
 int main(int argc, char **argv)
 {
-    static constexpr int NUM_LOOPS = 20;
+    static constexpr int NUM_LOOPS = 3;
     static constexpr int PERIOD_MS = 20;
 
     std::vector<std::pair<std::string, std::function<std::unique_ptr<geopm::IOGroup>()> > > iogroups = {
-        {geopm::LevelZeroIOGroup::plugin_name(), geopm::LevelZeroIOGroup::make_plugin}
+        {geopm::LevelZeroIOGroup::plugin_name(), geopm::LevelZeroIOGroup::make_plugin},
+        {geopm::TimeIOGroup::plugin_name(), geopm::TimeIOGroup::make_plugin}
     };
 
     std::vector<geopm_request_s> signal_config;
